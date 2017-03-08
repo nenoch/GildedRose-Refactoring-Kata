@@ -95,4 +95,20 @@ describe GildedRose do
 
   end
 
+  describe "#check_max_min_quality" do
+
+    it "quality had a min of 0" do
+      items = [Item.new("foo", 10, 0)]
+      GildedRose.new(items).update_inventory
+      expect(items[0].quality).to eq 0
+    end
+
+    it "quality had a max of 50" do
+      items = [Item.new("Aged Brie", 10, 50)]
+      GildedRose.new(items).update_inventory
+      expect(items[0].quality).to eq 50
+    end
+
+  end
+
 end
