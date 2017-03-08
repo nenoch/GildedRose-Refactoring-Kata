@@ -3,6 +3,28 @@ require './lib/gilded_rose'
 
 describe GildedRose do
 
+  describe "#update_inventory" do
+
+    it "update the inventory at the end of each day" do
+      items = [Item.new("foo", 10, 10)]
+      GildedRose.new(items).update_inventory
+      expect(items[0].sell_in).to eq 9
+      expect(items[0].quality).to eq 9
+
+    end
+
+  end
+
+  describe "#update_sellbydate" do
+
+    it "decreases the sell by date by 1" do
+      items = [Item.new("foo", 0, 0)]
+      GildedRose.new(items).update_sellbydate
+      expect(items[0].sell_in).to eq -1
+    end
+
+  end
+
   describe "#update_quality" do
 
     it "does not change the name" do

@@ -4,6 +4,17 @@ class GildedRose
     @items = items
   end
 
+  def update_inventory
+    update_sellbydate
+    update_quality
+  end
+
+  def update_sellbydate
+    @items.each do |item|
+      item.sell_in -= 1
+    end
+  end
+
   def update_quality
     @items.each do |item|
       case item.name
