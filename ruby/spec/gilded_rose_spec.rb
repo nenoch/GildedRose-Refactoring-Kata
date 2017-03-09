@@ -46,7 +46,7 @@ describe GildedRose do
     end
 
     it "aged brie quality increase +1 every day" do
-      items = [Item.new("Aged chicken liver", 10, 10)]
+      items = [Item.new("Aged Brie", 10, 10)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 11
     end
@@ -58,37 +58,37 @@ describe GildedRose do
     end
 
     it "backstage passes quality increases +2 10 to 6 days to sell by date" do
-      items = [Item.new("Backstage passes", 8, 10)]
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 8, 10)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 12
     end
 
     it "backstage passes quality increases +3 5 to 0 days to sell by date" do
-      items = [Item.new("Backstage passes", 3, 10)]
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 3, 10)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 13
     end
 
     it "backstage passes quality drops to 0 after concert" do
-      items = [Item.new("Backstage passes", -1, 10)]
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", -1, 10)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 0
     end
 
     it "conjured items quality decreases -4 after sell by date" do
-      items = [Item.new("Conjured cookies", 0, 8)]
+      items = [Item.new("Conjured Mana Cake", 0, 8)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 4
     end
 
     it "conjured items quality decreases -2 every day" do
-      items = [Item.new("Conjured cookies", 10, 10)]
+      items = [Item.new("Conjured Mana Cake", 10, 10)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 8
     end
 
     it "conjured items' quality decreases -4 after sell by date" do
-      items = [Item.new("Conjured cookies", 0, 8)]
+      items = [Item.new("Conjured Mana Cake", 0, 8)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 4
     end
