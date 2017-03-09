@@ -12,7 +12,9 @@ class GildedRose
 
   def update_sellbydate
     @items.each do |item|
-      item.sell_in -= 1
+      if item.name != "Sulfuras, Hand of Ragnaros"
+        item.sell_in -= 1
+      end
     end
   end
 

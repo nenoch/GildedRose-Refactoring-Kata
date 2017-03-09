@@ -23,6 +23,12 @@ describe GildedRose do
       expect(items[0].sell_in).to eq -1
     end
 
+    it "sulfuras sellbydate stays the same" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 10, 10)]
+      GildedRose.new(items).update_sellbydate
+      expect(items[0].sell_in).to eq 10
+    end
+
   end
 
   describe "#update_quality" do
